@@ -1,0 +1,17 @@
+{
+  "evidence_type": "solution_baseline",
+  "status": "draft",
+  "owner": "Solution Architect",
+  "baseline_version": "example-solution-baseline",
+  "summary": "Defines the minimal demo baseline used by this neutral consumer repository.",
+  "evidence_refs": [
+    "docs/ARCHITECTURE.md",
+    "docs/DEPLOYMENT.md"
+  ],
+  "known_limitations": [
+    "Demo baseline only; not production release evidence."
+  ],
+  "follow_up_actions": [
+    "Replace with product-specific solution baseline before blocking governance."
+  ]
+}

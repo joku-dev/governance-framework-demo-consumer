@@ -1,0 +1,8 @@
+[project]
+name = "governance-framework-demo-consumer"
+version = "0.1.0"
+description = "Neutral demo consumer for the public DevSecOps Governance Framework."
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+where = ["src"]

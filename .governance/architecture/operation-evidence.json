@@ -1,0 +1,15 @@
+{
+  "evidence_type": "operation_evidence",
+  "status": "draft",
+  "owner": "Operations Owner",
+  "summary": "The demo repository has no production runtime. Operational evidence is limited to workflow execution and test results.",
+  "evidence_refs": [
+    "docs/DEPLOYMENT.md"
+  ],
+  "known_limitations": [
+    "No production observability or runtime health data exists for this demo."
+  ],
+  "follow_up_actions": [
+    "Add real runtime evidence when adopting the pattern in a deployed application."
+  ]
+}
