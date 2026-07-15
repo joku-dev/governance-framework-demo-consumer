@@ -11,6 +11,11 @@ It also demonstrates the report-only vulnerability Evidence Trust pilot with
 a real Trivy scan, normalized evidence, subject digests, and a 24-hour
 Freshness evaluation.
 
+The validated mainline evidence is also centrally re-verified and projected in
+the governance framework's separate **Typed Evidence Trust** viewer section.
+This projection remains report-only and does not change the consumer's
+governance result.
+
 The demo intentionally starts in `report-only` mode. This keeps the first onboarding run useful for review without requiring branch protection or production-grade evidence on day one.
 
 ## What This Repository Contains

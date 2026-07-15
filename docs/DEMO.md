@@ -16,6 +16,7 @@ application source
   -> provisional 24-hour Freshness evaluation
   -> report-only Evidence Trust record
   -> released DevSecOps L1 governance evaluation
+  -> independent central re-verification and viewer projection
 ```
 
 The architecture workflow independently demonstrates the released
@@ -86,7 +87,19 @@ summary. Explain that:
 - vulnerability findings and Evidence Trust are separate signals
 - the released baseline evaluates the normalized governance input
 - report-only findings remain visible without failing delivery
-- no collector result updates the central viewer in this pilot
+- the central viewer projects typed Trust separately from governance results
+
+### 6. Central Projection
+
+In `joku-dev/devsecops-governance-framework`, open the **Typed Evidence
+Trust** section of `generated/viewer/status-viewer.html`. The central intake
+downloads `application-evidence`, recomputes both subject digests, applies
+Freshness again, and records its own verifier identity. It does not trust the
+producer assessment without checking the downloaded bytes.
+
+The projection is stored separately in
+`status/typed-evidence-results-index.json`; it does not create a governance
+pass or replace governance `latest_result`.
 
 ## Recommended Live Run
 
@@ -98,10 +111,12 @@ summary. Explain that:
 5. Download `application-evidence`.
 6. Show the raw scan, normalized scan, and Trust record in that order.
 7. Open the `Central DevSecOps Baseline` job and explain the report-only result.
+8. Open the governance viewer's **Typed Evidence Trust** section and compare
+   the centrally verified run with the producer record.
 
 A manually dispatched run is diagnostic evidence. It does not claim to be the
-official mainline state and does not automatically update a central
-`latest_result`.
+official mainline state. The typed-evidence index prefers a `main` push, so a
+later manual run does not replace that official central projection.
 
 ## Expected Result
 
@@ -120,13 +135,13 @@ scanner database is itself a useful explanation for the Freshness policy.
 
 ## Validated Reference Run
 
-The first known-good end-to-end run of this demo is:
+The current centrally verified mainline run of this demo is:
 
 | Field | Value |
 |---|---|
 | Workflow | `DevSecOps Baseline` |
-| Run | `29432752319` |
-| Commit | `aa9ffa25d99629683124585a7580e995d03b2372` |
+| Run | `29432884108` |
+| Commit | `4ec2b2bd53560e010ebb1c078c4d3bd41b0bfcc6` |
 | Event | `push` to `main` |
 | Trivy | `v0.70.0`, zero findings in this run |
 | Collector status | `collected` |
@@ -138,7 +153,7 @@ The first known-good end-to-end run of this demo is:
 Run URL:
 
 ```text
-https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/29432752319
+https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/29432884108
 ```
 
 Use this run as a stable fallback if a live scan is unavailable during a
@@ -164,5 +179,6 @@ checkout as described in its vulnerability-scan collector usage guide.
 - subject binding is `co_collected`, not scanner-attested
 - the collector pilot is pinned to a governance-framework commit rather than a
   released collector package
-- typed vulnerability Trust is not yet projected into the central viewer
+- automatic producer-to-governance dispatch still requires a configured
+  cross-repository intake token; manual central intake is available
 - no Trust signal blocks delivery
