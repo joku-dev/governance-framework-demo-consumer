@@ -7,6 +7,10 @@ It shows how an application repository can consume:
 - `joku-dev/devsecops-governance-framework/.github/workflows/devsecops-baseline-l1-v1.1.3.yml@l1-baseline-v1.1.3`
 - `joku-dev/devsecops-governance-framework/.github/workflows/architecture-baseline-l1-v0.1.0.yml@architecture-baseline-l1-v0.1.0`
 
+It also demonstrates the report-only vulnerability Evidence Trust pilot with
+a real Trivy scan, normalized evidence, subject digests, and a 24-hour
+Freshness evaluation.
+
 The demo intentionally starts in `report-only` mode. This keeps the first onboarding run useful for review without requiring branch protection or production-grade evidence on day one.
 
 ## What This Repository Contains
@@ -16,6 +20,8 @@ The demo intentionally starts in `report-only` mode. This keeps the first onboar
 | `.github/workflows/devsecops-baseline.yml` | Builds a small source artifact, generates minimal evidence and calls the public DevSecOps L1 baseline. |
 | `.github/workflows/architecture-governance.yml` | Calls the public Architecture L1 baseline. |
 | `.governance/architecture/` | Draft architecture evidence examples consumed by the architecture collector. |
+| `scripts/normalize_trivy_scan.py` | Converts real Trivy JSON into the collector's normalized vulnerability format. |
+| `docs/DEMO.md` | Presenter runbook for the end-to-end Evidence Trust demo. |
 | `docs/` | Minimal architecture and deployment documentation referenced by evidence. |
 | `src/demo_app/` | Tiny example application. |
 | `tests/` | Minimal unit test. |
@@ -29,13 +35,22 @@ The first run should produce:
 - `governance-run-input`
 - `architecture-governance-evidence`
 
+The `application-evidence` artifact also contains the raw Trivy result, the
+normalized vulnerability scan, and `vulnerability-scan-trust.json`.
+
 Findings are acceptable while the repository is in `report-only` mode. A team should switch to blocking mode only after evidence generation and branch protection are stable.
 
 ## Local Test
 
 ```bash
-python3 -m unittest discover -s tests
+PYTHONPATH=src python3 -m unittest discover -s tests
 ```
+
+## Demo Runbook
+
+Use [`docs/DEMO.md`](docs/DEMO.md) for the live walkthrough, expected Trust
+signals, and the distinction between a diagnostic run and official mainline
+state.
 
 ## Adoption Source
 

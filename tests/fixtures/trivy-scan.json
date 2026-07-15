@@ -1,0 +1,28 @@
+{
+  "SchemaVersion": 2,
+  "ArtifactName": ".",
+  "ArtifactType": "filesystem",
+  "Results": [
+    {
+      "Target": "requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "python-pkg",
+      "Vulnerabilities": [
+        {
+          "VulnerabilityID": "CVE-2026-10001",
+          "PkgName": "example-library",
+          "InstalledVersion": "1.2.0",
+          "FixedVersion": "1.2.1",
+          "Status": "fixed",
+          "Severity": "HIGH"
+        },
+        {
+          "VulnerabilityID": "CVE-2026-10002",
+          "PkgName": "example-library-two",
+          "InstalledVersion": "2.0.0",
+          "Severity": "CRITICAL"
+        }
+      ]
+    }
+  ]
+}
