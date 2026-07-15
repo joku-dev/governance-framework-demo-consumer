@@ -118,6 +118,33 @@ stable demo expectations are:
 Do not promise a fixed vulnerability count in the presentation. The changing
 scanner database is itself a useful explanation for the Freshness policy.
 
+## Validated Reference Run
+
+The first known-good end-to-end run of this demo is:
+
+| Field | Value |
+|---|---|
+| Workflow | `DevSecOps Baseline` |
+| Run | `29432752319` |
+| Commit | `aa9ffa25d99629683124585a7580e995d03b2372` |
+| Event | `push` to `main` |
+| Trivy | `v0.70.0`, zero findings in this run |
+| Collector status | `collected` |
+| Effective Trust level | `integrity_verified` |
+| Content digest check | `pass` |
+| Freshness check | `pass` |
+| Enforcement | `report_only` |
+
+Run URL:
+
+```text
+https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/29432752319
+```
+
+Use this run as a stable fallback if a live scan is unavailable during a
+presentation. Its zero findings are historical to that run; future scanner
+database updates may produce a different finding count.
+
 ## Local Validation
 
 Run the application and normalizer tests with:
