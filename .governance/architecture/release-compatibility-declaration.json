@@ -1,6 +1,6 @@
 {
   "evidence_type": "release_compatibility_declaration",
-  "status": "draft",
+  "status": "reviewed",
   "owner": "Product Architect",
   "baseline_version": "example-solution-baseline",
   "summary": "Declares that the demo application is compatible with the example solution baseline for report-only evaluation.",
@@ -8,7 +8,7 @@
     "docs/ARCHITECTURE.md"
   ],
   "known_limitations": [
-    "Draft declaration for demonstration only."
+    "Reviewed demo declaration; architecture-owner approval is still required before blocking use."
   ],
   "follow_up_actions": [
     "Review and approve compatibility evidence before release use."

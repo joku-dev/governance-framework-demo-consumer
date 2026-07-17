@@ -1,0 +1,17 @@
+{
+  "evidence_type": "resilience_evidence",
+  "status": "reviewed",
+  "owner": "Solution Architect",
+  "summary": "The stateless demo can be rebuilt and its test suite rerun from the immutable commit; runtime failover is out of scope.",
+  "evidence_refs": [
+    "docs/ARCHITECTURE.md",
+    "tests/test_service.py",
+    "docs/DEPLOYMENT.md"
+  ],
+  "known_limitations": [
+    "No production deployment, failover, degraded-mode, or recovery execution exists."
+  ],
+  "follow_up_actions": [
+    "Add failure-mode and recovery test results when the demo gains a deployable service."
+  ]
+}

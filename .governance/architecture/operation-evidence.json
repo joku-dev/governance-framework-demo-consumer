@@ -1,6 +1,6 @@
 {
   "evidence_type": "operation_evidence",
-  "status": "draft",
+  "status": "reviewed",
   "owner": "Operations Owner",
   "summary": "The demo repository has no production runtime. Operational evidence is limited to workflow execution and test results.",
   "evidence_refs": [
