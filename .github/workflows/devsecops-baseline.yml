@@ -85,9 +85,9 @@ jobs:
               },
               "required_platform_level": "PRA-Level 1",
               "repository": {
-                  "protected_branch": False,
-                  "direct_push_allowed": True,
-                  "review_required": False,
+                  "protected_branch": True,
+                  "direct_push_allowed": False,
+                  "review_required": True,
               },
               "traceability": {
                   "requirements_linked": False,
