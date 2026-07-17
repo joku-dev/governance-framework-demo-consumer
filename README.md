@@ -16,7 +16,9 @@ the governance framework's separate **Typed Evidence Trust** viewer section.
 This projection remains report-only and does not change the consumer's
 governance result.
 
-The demo intentionally starts in `report-only` mode. This keeps the first onboarding run useful for review without requiring branch protection or production-grade evidence on day one.
+The demo remains in `report-only` mode, while `main` is protected with required
+pull-request review and direct pushes disabled. This keeps findings visible for
+review without making the governance workflow block delivery.
 
 ## What This Repository Contains
 
