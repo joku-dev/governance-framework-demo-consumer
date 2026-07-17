@@ -1,0 +1,17 @@
+{
+  "evidence_type": "compatibility_matrix",
+  "status": "reviewed",
+  "owner": "Product Architect",
+  "baseline_version": "example-solution-baseline",
+  "summary": "The demo exposes no external runtime interface and has no migration or data-contract compatibility dependency.",
+  "evidence_refs": [
+    "docs/ARCHITECTURE.md",
+    "docs/DEPLOYMENT.md"
+  ],
+  "known_limitations": [
+    "A deployable product must replace this declaration with versioned interface and data compatibility evidence."
+  ],
+  "follow_up_actions": [
+    "Add contract tests and a product compatibility matrix when an external interface is introduced."
+  ]
+}

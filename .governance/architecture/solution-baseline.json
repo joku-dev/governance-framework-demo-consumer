@@ -1,6 +1,6 @@
 {
   "evidence_type": "solution_baseline",
-  "status": "draft",
+  "status": "reviewed",
   "owner": "Solution Architect",
   "baseline_version": "example-solution-baseline",
   "summary": "Defines the minimal demo baseline used by this neutral consumer repository.",
