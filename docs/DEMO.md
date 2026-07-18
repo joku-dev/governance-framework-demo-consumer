@@ -101,6 +101,21 @@ The projection is stored separately in
 `status/typed-evidence-results-index.json`; it does not create a governance
 pass or replace governance `latest_result`.
 
+### 7. Replay Triage And Artifact Binding
+
+The central governance intake also downloads `devsecops-pipeline-evidence` and
+records the SHA-256 digest supplied by the GitHub Actions artifact API. Replay
+Triage uses this artifact digest to distinguish a newly produced artifact from
+a normalized control report whose deterministic content is unchanged across
+commits.
+
+In the governance viewer, compare **Recorded** with **Current
+Interpretation**. A historical replay result remains immutable. A new mainline
+run with artifact-digest binding can resolve the current operational finding
+without editing or deleting the earlier snapshot. Replay remains report-only
+and does not change the governance outcome, Evidence Trust level, latest-state
+selection, or delivery enforcement.
+
 ## Recommended Live Run
 
 1. Open the repository's **Actions** page.
@@ -111,8 +126,9 @@ pass or replace governance `latest_result`.
 5. Download `application-evidence`.
 6. Show the raw scan, normalized scan, and Trust record in that order.
 7. Open the `Central DevSecOps Baseline` job and explain the report-only result.
-8. Open the governance viewer's **Typed Evidence Trust** section and compare
-   the centrally verified run with the producer record.
+8. Intake the mainline `devsecops-pipeline-evidence` artifact centrally.
+9. Open the governance viewer's **Typed Evidence Trust** and **Replay Triage**
+   sections and compare the centrally verified run with the producer record.
 
 A manually dispatched run is diagnostic evidence. It does not claim to be the
 official mainline state. The typed-evidence index prefers a `main` push, so a
