@@ -16,6 +16,12 @@ the governance framework's separate **Typed Evidence Trust** viewer section.
 This projection remains report-only and does not change the consumer's
 governance result.
 
+The central **Replay Triage** projection additionally uses the GitHub Actions
+artifact digest to distinguish newly produced pipeline evidence from
+deterministic normalized report content. Historical replay assessments remain
+immutable; remediation is demonstrated by producing and intaking a fresh
+mainline artifact.
+
 The demo remains in `report-only` mode, while `main` is protected with required
 pull-request review and direct pushes disabled. This keeps findings visible for
 review without making the governance workflow block delivery.
