@@ -55,6 +55,9 @@ Findings are acceptable while the repository is in `report-only` mode. A team sh
 
 ## Local Test
 
+For the September maintenance refresh, see
+[Refresh governance evidence](docs/EVIDENCE-REFRESH.md).
+
 ```bash
 PYTHONPATH=src python3 -m unittest discover -s tests
 ```
