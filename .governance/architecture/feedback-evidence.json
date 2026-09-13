@@ -2,15 +2,16 @@
   "evidence_type": "feedback_evidence",
   "status": "reviewed",
   "owner": "Architecture Review Owner",
-  "summary": "Architecture findings are reviewed after each demo run and retained as improvement backlog input.",
+  "summary": "The operation-readiness action links the real gate finding, technical work owner, implementation and explicit acceptance/closure conditions.",
   "evidence_refs": [
     "docs/ARCHITECTURE.md",
-    "docs/DEMO.md"
+    "docs/DEMO.md",
+    "docs/OPERATION_READINESS_ACTION.md"
   ],
   "known_limitations": [
     "This is a demonstration feedback loop, not production incident or benchmark trend evidence."
   ],
   "follow_up_actions": [
-    "Record owned improvement actions and closure evidence for future architecture runs."
+    "Obtain consumer lifecycle role assignment, evidence review, fresh gate evidence and a separate closure decision."
   ]
 }

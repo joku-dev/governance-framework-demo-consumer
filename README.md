@@ -75,3 +75,9 @@ This repository was created from the public adoption package:
 ```text
 https://github.com/joku-dev/devsecops-governance-framework/tree/main/adoption-package
 ```
+
+## Operation-readiness evidence
+
+The [open improvement action](docs/OPERATION_READINESS_ACTION.md) connects the
+architecture gate finding to CI runtime diagnostics and explicit review/closure
+conditions. Evidence approval and lifecycle closure remain pending.
