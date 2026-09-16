@@ -1,8 +1,8 @@
 {
   "evidence_type": "observability_evidence",
-  "status": "reviewed",
-  "owner": "Operations Owner",
-  "summary": "CI retains measured success, input rejection and duration diagnostics for the local Python demo function.",
+  "status": "approved",
+  "owner": "joku-dev (github-user:81616324)",
+  "summary": "Approved for the non-deployed demo: actual mainline CI run 35107861865 retains three passing local-function diagnostics, verified against its commit and artifact digest.",
   "evidence_refs": [
     "docs/DEPLOYMENT.md",
     ".github/workflows/ci.yml",
@@ -10,13 +10,16 @@
     "docs/OPERATION_READINESS_ACTION.md",
     "src/demo_app/diagnostics.py",
     "scripts/run_runtime_diagnostics.py",
-    "tests/test_diagnostics.py"
+    "tests/test_diagnostics.py",
+    "https://github.com/joku-dev/devsecops-governance-framework/pull/102#issuecomment-5700249154",
+    "https://github.com/joku-dev/devsecops-governance-framework/blob/62d6dfb5404d51e53a79390b1443a4d1cdf532e3/model/governance/lifecycle/consumer-operation/action-requests/00000001.json",
+    "https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/35107861865/artifacts/10451300942"
   ],
   "known_limitations": [
     "CI-local function diagnostics only; no deployed service, production metrics, alerts or availability claim.",
     "Artifacts require the actual CI run reference; this declaration alone does not verify execution."
   ],
   "follow_up_actions": [
-    "Retain the mainline CI artifact and obtain accountable scope/evidence approval before changing status to approved."
+    "Retain the separate personal in_progress and completed records, obtain a fresh mainline gate PASS after completion, and record personal closure."
   ]
 }
