@@ -1,6 +1,6 @@
 # Operation-readiness improvement action
 
-Status: **personal remediation decision received; scoped evidence approval implemented; progress and closure pending**.
+Status: **personal remediation decision received; scoped evidence approval implemented; `in_progress` recorded; closure pending**.
 
 The architecture run [34778462308](https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/34778462308)
 on commit `7d6a4f67c5e8441e1067405cc2da17218dc256fd` reports two messages
@@ -28,7 +28,7 @@ The maintainer personally approved the bound remediation plan in
 at `2026-09-16T15:40:52Z`. The decision names `joku-dev` and a deadline of
 23 September 2026, 23:59:59 Europe/Berlin. Its immutable request is
 [`consumer-operation/action-requests/00000001.json`](https://github.com/joku-dev/devsecops-governance-framework/blob/62d6dfb5404d51e53a79390b1443a4d1cdf532e3/model/governance/lifecycle/consumer-operation/action-requests/00000001.json).
-Publish this evidence update after central capture of that decision is merged.
+The separate `in_progress` statement was personally posted and captured in central [PR #188](https://github.com/joku-dev/devsecops-governance-framework/pull/188), merged on 2 October 2026. The accepted action record is [`consumer-operation/action-requests/00000002.json`](https://github.com/joku-dev/devsecops-governance-framework/blob/main/model/governance/lifecycle/consumer-operation/action-requests/00000002.json).
 
 ## Work and evidence
 
@@ -52,6 +52,15 @@ production service, deployed health endpoint, alerting, availability or SLO.
 A failed probe is retained as report-only evidence. Unit tests verify that
 unexpected failures and missing input rejection remain visible.
 
+
+## Current lifecycle progress and revalidation
+
+Central [PR #188](https://github.com/joku-dev/devsecops-governance-framework/pull/188) recorded the maintainer's personal `in_progress` statement on 2 October 2026. The [published lifecycle index](https://github.com/joku-dev/devsecops-governance-framework/blob/main/status/governance-consumer-lifecycle.json) remains report-only and open, with one finding and two action records.
+
+A fresh diagnostic run, [37051785978](https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/37051785978), completed successfully on main commit `1fadf9759ecd6b64744bfc07644cd895e7b92bbe`; its `operation_readiness` gate passed. It was triggered as `workflow_dispatch`, so the consumer lifecycle collector does not accept it: the accepted source contract requires a successful first-attempt `push` run on `main`. Its artifact is diagnostic only and does not update lifecycle state.
+
+After this documentation change reaches `main`, retain the resulting eligible architecture `push` run and have the central collector verify it. Use that fresh, captured evidence for a separate personal `completed` statement. After that statement is captured, obtain another successful `push` PASS before preparing the distinct personal closure request.
+
 ## Completion and closure
 
 1. Retain the successful mainline CI run and its diagnostic artifact after merge.
@@ -59,10 +68,11 @@ unexpected failures and missing input rejection remain visible.
    initial failure and separate personal remediation decision.
 3. Feedback and observability evidence are now `approved` within the documented
    demo boundary. Retain the resulting mainline architecture evaluation.
-4. Record separate personally confirmed `in_progress` and `completed` progress.
-   Require a fresh mainline `operation_readiness` PASS observed after the
-   `completed` record. An earlier PASS does not satisfy this closure condition.
-   Retain the earlier finding and every decision/progress record.
+4. The personal `in_progress` statement is recorded. Obtain a fresh eligible
+   mainline `operation_readiness` PASS, then record `completed` personally.
+   Require another fresh mainline PASS observed after the `completed` record
+   before closure. An earlier or manually dispatched run does not satisfy this
+   closure condition. Retain the earlier finding and every decision/progress record.
 5. Obtain the separate personal closure decision. A green CI, manual run, technical
    PR merge or another gate's PASS does not close this gate finding.
 
