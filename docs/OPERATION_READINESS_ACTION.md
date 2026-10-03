@@ -1,6 +1,6 @@
 # Operation-readiness improvement action
 
-Status: **personal remediation decision received; scoped evidence approval implemented; `completed` recorded; post-completion revalidation and closure pending**.
+Status: **personal remediation decision received; scoped evidence approved; `completed` and personal closure recorded; operation-readiness finding closed in the central report-only pilot**.
 
 The architecture run [34778462308](https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/34778462308)
 on commit `7d6a4f67c5e8441e1067405cc2da17218dc256fd` reports two messages
@@ -34,8 +34,8 @@ The separate `in_progress` statement was personally posted and captured in centr
 
 | Item | Implementation | Recorded scope and remaining step |
 |---|---|---|
-| Feedback / B5 | This tracked action links the source finding, technical owner, authorized work and closure conditions; feedback evidence references it | Approved within the confirmed demo scope and personally authorized remediation plan; completion is recorded, closure remains separate |
-| Observability / P11 | CI executes `describe_release` and invalid-input cases, retains outcomes, durations, commit and run in `demo-runtime-diagnostics` | Approved for this non-deployed demo using the verified actual artifact below; completion is recorded, closure remains separate |
+| Feedback / B5 | This tracked action links the source finding, technical owner, authorized work and closure conditions; feedback evidence references it | Approved within the confirmed demo scope and personally authorized remediation plan; completion and closure are recorded for this gate |
+| Observability / P11 | CI executes `describe_release` and invalid-input cases, retains outcomes, durations, commit and run in `demo-runtime-diagnostics` | Approved for this non-deployed demo using the verified actual artifact below; completion and closure are recorded for this gate |
 
 The approved input is [CI run 35107861865](https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/35107861865),
 a successful `push` on `main` for commit `5da284d0a3e7d526df644266451206e09084a556`.
@@ -55,11 +55,13 @@ unexpected failures and missing input rejection remain visible.
 
 ## Current lifecycle progress and revalidation
 
-Central [PR #188](https://github.com/joku-dev/devsecops-governance-framework/pull/188) recorded the maintainer's personal `in_progress` statement on 2 October 2026. The personal `completed` statement was captured after the maintainer posted consent and was published by central [PR #195](https://github.com/joku-dev/devsecops-governance-framework/pull/195), merged on 3 October 2026. Central [PR #196](https://github.com/joku-dev/devsecops-governance-framework/pull/196) published the verified capture. The [published lifecycle index](https://github.com/joku-dev/devsecops-governance-framework/blob/main/status/governance-consumer-lifecycle.json), as of `2026-10-03T09:10:08Z`, remains report-only and open: it has three action records, two receipts, one failure, no quarantine, and no active closure.
+Central [PR #188](https://github.com/joku-dev/devsecops-governance-framework/pull/188) recorded the maintainer's personal `in_progress` statement on 2 October 2026. The personal `completed` statement was captured and published by central [PRs #195](https://github.com/joku-dev/devsecops-governance-framework/pull/195) and [#196](https://github.com/joku-dev/devsecops-governance-framework/pull/196). After completion, eligible architecture `push` run [#37113784702](https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/37113784702) passed `operation_readiness`; its evidence was captured in central [PR #197](https://github.com/joku-dev/devsecops-governance-framework/pull/197). The maintainer's separate personal closure statement was captured from [comment #5968490609 on central PR #198](https://github.com/joku-dev/devsecops-governance-framework/pull/198#issuecomment-5968490609), and closure was published in central [PR #199](https://github.com/joku-dev/devsecops-governance-framework/pull/199), merged on 3 October 2026.
+
+The [published lifecycle index](https://github.com/joku-dev/devsecops-governance-framework/blob/main/status/governance-consumer-lifecycle.json), as of `2026-10-03T10:58:04Z`, records the scoped finding as `closed` under `report_only`: four action records, three receipts, one retained failure, zero quarantined records, and an active closure. This closes only the `operation_readiness` consumer pilot case; it is not production approval or blocking authorization.
 
 A fresh diagnostic run, [37051785978](https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/37051785978), completed successfully on main commit `1fadf9759ecd6b64744bfc07644cd895e7b92bbe`; its `operation_readiness` gate passed. It was triggered as `workflow_dispatch`, so the consumer lifecycle collector does not accept it: the accepted source contract requires a successful first-attempt `push` run on `main`. Its artifact is diagnostic only and does not update lifecycle state.
 
-The latest eligible architecture `push` run, [37105987460](https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/37105987460), passed on `main` before the `completed` statement was captured, so it cannot satisfy post-completion revalidation. After this documentation update reaches `main`, retain the resulting successful first-attempt architecture `push` run and have the central collector verify it. Then prepare the distinct personal closure request; closure still requires its own personal decision and central capture.
+The latest eligible post-completion architecture `push` run is [37113784702](https://github.com/joku-dev/governance-framework-demo-consumer/actions/runs/37113784702), a successful first attempt on `main` for commit `008d833be179660eea41b8a4a80615cc16252ab3`. Central intake retained it as receipt 3. The separate closure request and personal statement were captured and published; the current central projection is closed for this scoped gate.
 
 ## Completion and closure
 
@@ -68,14 +70,12 @@ The latest eligible architecture `push` run, [37105987460](https://github.com/jo
    initial failure and separate personal remediation decision.
 3. Feedback and observability evidence are now `approved` within the documented
    demo boundary. Retain the resulting mainline architecture evaluation.
-4. The personal `in_progress` and `completed` statements are recorded. Obtain a
-   fresh eligible mainline `operation_readiness` PASS observed after the
-   `completed` record. An earlier or manually dispatched run does not satisfy
-   this post-completion revalidation condition. Retain the earlier finding and
-   every decision/progress record.
-5. Obtain the separate personal closure decision and have central intake capture
-   it. A green CI, manual run, technical
-   PR merge or another gate's PASS does not close this gate finding.
+4. **Erledigt:** Die persönliche `in_progress`- und `completed`-Erklärung sind
+   erfasst. Der frische Mainline-PASS nach `completed` ist als Receipt 3
+   aufgenommen. Der frühere Fehler und alle Fortschrittsnachweise bleiben erhalten.
+5. **Erledigt:** Die separate persönliche Closure-Erklärung wurde geprüft und
+   zentral aufgenommen. Central PR #199 veröffentlichte den aktiven Closure-Record;
+   das Finding steht im Lifecycle-Index auf `closed`.
 
 The other 23 architecture messages remain outside this action. No waiver,
 blocking mode, baseline change or existing central lifecycle-state mutation is
